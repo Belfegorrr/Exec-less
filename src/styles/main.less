@@ -1,0 +1,100 @@
+@import "mapas.less";
+
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(max-width: 768px) and (max-width: 1023px)";
+
+.width100 {
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: #fontfamily[fontBody];
+}
+body {
+  background-color: #colors[backgroundColorBody];
+  color: #colors[textColor];
+}
+li {
+  list-style: none;
+}
+.container {
+  max-width: 1024px;
+  .width100();
+  margin: 0 auto;
+}
+header {
+  background-color: #colors[backgroundHeader];
+  position: sticky;
+  top: 0;
+  left: 0;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+}
+
+.menu {
+  display: flex;
+  li {
+    font-weight: bold;
+    margin-left: 24px;
+    a {
+      color: #colors[linkColor];
+      text-decoration: none;
+    }
+  }
+}
+
+section {
+  padding: 56px 0;
+}
+
+.products {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 32.66%);
+  column-gap: 1%;
+  row-gap: 4%;
+  .width100();
+  &-item img {
+    .width100();
+    border-radius: 16px;
+  }
+  &-button {
+    display: block;
+    background-color: #colors[buttonColor];
+    color: #colors[linkColor];
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+    &:hover {
+      background-color: #colors[buttonColorHover];
+    }
+  }
+}
+
+@media @breakpointMobile {
+  .container {
+    max-width: 80%;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+@media @breakpointTablet {
+  .products {
+    display: block;
+    &-item {
+      margin-bottom: 32px;
+    }
+  }
+}
